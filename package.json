@@ -1,12 +1,27 @@
 {
-  "name": "react-electron-demo",
+  "name": "zhulie",
   "version": "0.1.0",
   "private": true,
   "main": "app/index.js",
-  "description": "A template for electron app with react.",
+  "description": "筑猎-资源共享中心",
   "author": {
-    "name": "JerryShen",
-    "email": "327538014@qq.com"
+    "name": "gugu dog",
+    "email": "1544500164@qq.com"
+  },
+  "babel": {
+    "presets": [
+      "react-app"
+    ],
+    "plugins": [
+      [
+        "import",
+        {
+          "libraryName": "antd",
+          "libraryDirectory": "es",
+          "style": "css"
+        }
+      ]
+    ]
   },
   "scripts": {
     "start": "concurrently \"npm run start:react\" \"npm run start:electron\"",
@@ -23,6 +38,7 @@
     "eject": "react-app-rewired eject"
   },
   "dependencies": {
+    "antd": "^3.13.2",
     "electron-debug": "^2.0.0",
     "electron-is-dev": "^0.3.0",
     "electron-log": "^2.2.16",
@@ -31,10 +47,12 @@
     "react-dom": "^16.4.1"
   },
   "devDependencies": {
+    "babel-plugin-import": "^1.11.0",
     "concurrently": "^3.6.1",
     "cross-env": "^5.2.0",
+    "customize-cra": "^0.2.11",
     "devtron": "^1.4.0",
-    "electron": "^2.0.5",
+    "electron": "^4.0.4",
     "electron-builder": "^20.26.1",
     "electron-devtools-installer": "^2.2.4",
     "react-app-rewired": "^1.5.2",
@@ -42,14 +60,23 @@
     "wait-on": "^2.1.0"
   },
   "build": {
-    "productName": "Electron-React-Test",
+    "productName": "筑猎",
     "extends": null,
+    "copyright": "guguDog copyright",
     "files": [
       "build/**/*"
     ],
+    "nsis": {
+      "oneClick": false,
+      "allowElevation": false,
+      "allowToChangeInstallationDirectory": true,
+      "createDesktopShortcut": true,
+      "createStartMenuShortcut": true,
+      "shortcutName": "筑猎"
+    },
     "publish": {
       "provider": "github",
-      "private": false
+      "private": true
     },
     "mac": {
       "icon": "icons/icon.icns"

@@ -1,7 +1,10 @@
-module.exports = function override(config, env) {
+const { override, fixBabelImports } = require('customize-cra')
+
+module.exports = override(
   //do stuff with the webpack config...
-  if (env === "production") {
-    config.output.publicPath = './'; // 设置输出的公共路径为./
-  }
-  return config;
-};
+  fixBabelImports('import', {
+    libraryName: 'antd',
+    libraryDirectory: 'es',
+    style: 'css',
+  })
+)
